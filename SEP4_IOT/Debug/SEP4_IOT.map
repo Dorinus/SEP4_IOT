@@ -6,6 +6,10 @@ Archive member included to satisfy reference by file (symbol)
                               upLinkHandler.o (lora_driver_flushBuffers)
 ../drivers\libIotLibrary.a(lora_driver_utils.o)
                               ../drivers\libIotLibrary.a(lora_driver.o) (decode_port_no)
+../drivers\libIotLibrary.a(mh_z19.o)
+                              co2Reader.o (mh_z19_initialise)
+../drivers\libIotLibrary.a(rc_servo.o)
+                              servo.o (rc_servo_setPosition)
 ../drivers\libIotLibrary.a(serial.o)
                               ../drivers\libIotLibrary.a(lora_driver.o) (serial_create)
 ../drivers\libIotLibrary.a(stdio_driver.o)
@@ -55,13 +59,13 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_tablejump2.o)
                               FreeRTOS/src/timers.o (__tablejump2__)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_copy_data.o)
-                              upLinkHandler.o (__do_copy_data)
+                              co2Reader.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
-                              upLinkHandler.o (__do_clear_bss)
+                              co2Reader.o (__do_clear_bss)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
                               humidityTemperatureReader.o (calloc)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
-                              ../drivers\libIotLibrary.a(serial.o) (malloc)
+                              co2Reader.o (malloc)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(abort.o)
                               ../drivers\libIotLibrary.a(fifo.o) (abort)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atoi.o)
@@ -114,6 +118,59 @@ Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega2560/avr6/crtatmega2560.o
+ .text          0x00000000        0x0 co2Reader.o
+ .data          0x00000000        0x0 co2Reader.o
+ .bss           0x00000000        0x0 co2Reader.o
+ .rodata.str1.1
+                0x00000000        0xa co2Reader.o
+ .text.co2Reader_create
+                0x00000000       0xc4 co2Reader.o
+ .text.co2Reader_destroy
+                0x00000000       0x1e co2Reader.o
+ .text.co2Reader_measure
+                0x00000000       0xaa co2Reader.o
+ .text.co2Reader_execute_task
+                0x00000000        0xa co2Reader.o
+ .text.co2reader_getCO2
+                0x00000000        0x8 co2Reader.o
+ .bss._bit_ready
+                0x00000000        0x4 co2Reader.o
+ .bss._event_group_ready
+                0x00000000        0x2 co2Reader.o
+ .bss._bit_start_measure
+                0x00000000        0x4 co2Reader.o
+ .bss._event_group_start_measure
+                0x00000000        0x2 co2Reader.o
+ .debug_info    0x00000000      0x4c6 co2Reader.o
+ .debug_abbrev  0x00000000      0x182 co2Reader.o
+ .debug_loc     0x00000000      0x430 co2Reader.o
+ .debug_aranges
+                0x00000000       0x40 co2Reader.o
+ .debug_ranges  0x00000000       0x30 co2Reader.o
+ .debug_line    0x00000000      0x20e co2Reader.o
+ .debug_str     0x00000000      0x47e co2Reader.o
+ .comment       0x00000000       0x31 co2Reader.o
+ .debug_frame   0x00000000       0xf4 co2Reader.o
+ .text          0x00000000        0x0 servo.o
+ .data          0x00000000        0x0 servo.o
+ .bss           0x00000000        0x0 servo.o
+ .text.servo_initialise
+                0x00000000        0x6 servo.o
+ .text.servo_open_window
+                0x00000000        0xa servo.o
+ .text.servo_close_window
+                0x00000000        0xa servo.o
+ .text.servo_half_opened_window
+                0x00000000        0xa servo.o
+ .debug_info    0x00000000      0x139 servo.o
+ .debug_abbrev  0x00000000       0x78 servo.o
+ .debug_aranges
+                0x00000000       0x38 servo.o
+ .debug_ranges  0x00000000       0x28 servo.o
+ .debug_line    0x00000000       0x99 servo.o
+ .debug_str     0x00000000      0x1e8 servo.o
+ .comment       0x00000000       0x31 servo.o
+ .debug_frame   0x00000000       0x54 servo.o
  .text          0x00000000        0x0 upLinkHandler.o
  .data          0x00000000        0x0 upLinkHandler.o
  .bss           0x00000000        0x0 upLinkHandler.o
@@ -367,13 +424,13 @@ Discarded input sections
                 0x00000000        0x8 humidityTemperatureReader.o
  .text.humTempReader_getTemperature
                 0x00000000        0x8 humidityTemperatureReader.o
- .bss._readyBit
+ .bss._bit_ready
                 0x00000000        0x4 humidityTemperatureReader.o
- .bss._readyMeasuringEventGroup
+ .bss._event_group_ready_measurment
                 0x00000000        0x2 humidityTemperatureReader.o
- .bss._startMeasureBit
+ .bss._bit_start_measure
                 0x00000000        0x4 humidityTemperatureReader.o
- .bss._startMeasureEventGroup
+ .bss._event_group_start_measure
                 0x00000000        0x2 humidityTemperatureReader.o
  .debug_info    0x00000000      0x571 humidityTemperatureReader.o
  .debug_abbrev  0x00000000      0x179 humidityTemperatureReader.o
@@ -382,7 +439,7 @@ Discarded input sections
                 0x00000000       0x48 humidityTemperatureReader.o
  .debug_ranges  0x00000000       0x38 humidityTemperatureReader.o
  .debug_line    0x00000000      0x280 humidityTemperatureReader.o
- .debug_str     0x00000000      0x4ee humidityTemperatureReader.o
+ .debug_str     0x00000000      0x50b humidityTemperatureReader.o
  .comment       0x00000000       0x31 humidityTemperatureReader.o
  .debug_frame   0x00000000      0x104 humidityTemperatureReader.o
  .text          0x00000000        0x0 LoRaWANHandler.o
@@ -468,6 +525,65 @@ Discarded input sections
  .text          0x00000000        0x0 ../drivers\libIotLibrary.a(lora_driver_utils.o)
  .data          0x00000000        0x0 ../drivers\libIotLibrary.a(lora_driver_utils.o)
  .bss           0x00000000        0x0 ../drivers\libIotLibrary.a(lora_driver_utils.o)
+ .text          0x00000000        0x0 ../drivers\libIotLibrary.a(mh_z19.o)
+ .data          0x00000000        0x0 ../drivers\libIotLibrary.a(mh_z19.o)
+ .bss           0x00000000        0x0 ../drivers\libIotLibrary.a(mh_z19.o)
+ .text._serialCallBack
+                0x00000000       0xb6 ../drivers\libIotLibrary.a(mh_z19.o)
+ .text.mh_z19_initialise
+                0x00000000       0x4c ../drivers\libIotLibrary.a(mh_z19.o)
+ .text.mh_z19_injectCallBack
+                0x00000000        0xa ../drivers\libIotLibrary.a(mh_z19.o)
+ .rodata        0x00000000       0x2d ../drivers\libIotLibrary.a(mh_z19.o)
+ .text.mh_z19_takeMeassuring
+                0x00000000       0x60 ../drivers\libIotLibrary.a(mh_z19.o)
+ .text.mh_z19_getCo2Ppm
+                0x00000000       0x22 ../drivers\libIotLibrary.a(mh_z19.o)
+ .text.mh_z19_setAutoCalibration
+                0x00000000       0x84 ../drivers\libIotLibrary.a(mh_z19.o)
+ .text.mh_z19_calibrateZeroPoint
+                0x00000000       0x60 ../drivers\libIotLibrary.a(mh_z19.o)
+ .text.mh_z19_calibrateSpanPoint
+                0x00000000       0x96 ../drivers\libIotLibrary.a(mh_z19.o)
+ .bss.data.1944
+                0x00000000        0x2 ../drivers\libIotLibrary.a(mh_z19.o)
+ .bss.inDex.1943
+                0x00000000        0x1 ../drivers\libIotLibrary.a(mh_z19.o)
+ .bss.crc_sum.1945
+                0x00000000        0x1 ../drivers\libIotLibrary.a(mh_z19.o)
+ .bss._appCallBack
+                0x00000000        0x2 ../drivers\libIotLibrary.a(mh_z19.o)
+ .bss._mh_state
+                0x00000000        0x1 ../drivers\libIotLibrary.a(mh_z19.o)
+ .bss._ppm      0x00000000        0x2 ../drivers\libIotLibrary.a(mh_z19.o)
+ .bss._serial   0x00000000        0x2 ../drivers\libIotLibrary.a(mh_z19.o)
+ .debug_info    0x00000000      0x556 ../drivers\libIotLibrary.a(mh_z19.o)
+ .debug_abbrev  0x00000000      0x238 ../drivers\libIotLibrary.a(mh_z19.o)
+ .debug_loc     0x00000000      0x37c ../drivers\libIotLibrary.a(mh_z19.o)
+ .debug_aranges
+                0x00000000       0x58 ../drivers\libIotLibrary.a(mh_z19.o)
+ .debug_ranges  0x00000000       0x48 ../drivers\libIotLibrary.a(mh_z19.o)
+ .debug_line    0x00000000      0x2fc ../drivers\libIotLibrary.a(mh_z19.o)
+ .debug_str     0x00000000      0x489 ../drivers\libIotLibrary.a(mh_z19.o)
+ .comment       0x00000000       0x31 ../drivers\libIotLibrary.a(mh_z19.o)
+ .debug_frame   0x00000000      0x100 ../drivers\libIotLibrary.a(mh_z19.o)
+ .text          0x00000000        0x0 ../drivers\libIotLibrary.a(rc_servo.o)
+ .data          0x00000000        0x0 ../drivers\libIotLibrary.a(rc_servo.o)
+ .bss           0x00000000        0x0 ../drivers\libIotLibrary.a(rc_servo.o)
+ .text.rc_servo_setPosition
+                0x00000000       0x30 ../drivers\libIotLibrary.a(rc_servo.o)
+ .text.rc_servo_initialise
+                0x00000000       0x3c ../drivers\libIotLibrary.a(rc_servo.o)
+ .debug_info    0x00000000      0x10f ../drivers\libIotLibrary.a(rc_servo.o)
+ .debug_abbrev  0x00000000       0xbc ../drivers\libIotLibrary.a(rc_servo.o)
+ .debug_loc     0x00000000       0x2f ../drivers\libIotLibrary.a(rc_servo.o)
+ .debug_aranges
+                0x00000000       0x28 ../drivers\libIotLibrary.a(rc_servo.o)
+ .debug_ranges  0x00000000       0x18 ../drivers\libIotLibrary.a(rc_servo.o)
+ .debug_line    0x00000000       0xfd ../drivers\libIotLibrary.a(rc_servo.o)
+ .debug_str     0x00000000      0x1e2 ../drivers\libIotLibrary.a(rc_servo.o)
+ .comment       0x00000000       0x31 ../drivers\libIotLibrary.a(rc_servo.o)
+ .debug_frame   0x00000000       0x34 ../drivers\libIotLibrary.a(rc_servo.o)
  .text          0x00000000        0x0 ../drivers\libIotLibrary.a(serial.o)
  .data          0x00000000        0x0 ../drivers\libIotLibrary.a(serial.o)
  .bss           0x00000000        0x0 ../drivers\libIotLibrary.a(serial.o)
@@ -717,6 +833,8 @@ Linker script and memory map
 
 Address of section .data set to 0x800200
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega2560/avr6/crtatmega2560.o
+LOAD co2Reader.o
+LOAD servo.o
 LOAD upLinkHandler.o
 LOAD FreeRTOS/FreeRTOSTraceDriver/FreeRTOSTraceDriver.o
 LOAD FreeRTOS/src/croutine.o

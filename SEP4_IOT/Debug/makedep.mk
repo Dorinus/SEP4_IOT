@@ -4,6 +4,10 @@
 
 co2Reader.c
 
+servo.c
+
+upLinkHandler.c
+
 FreeRTOS\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c
 
 FreeRTOS\src\croutine.c
@@ -31,3 +35,4 @@ humidityTemperatureReader.c
 LoRaWANHandler.c
 
 main.c
+

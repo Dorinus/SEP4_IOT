@@ -41,21 +41,21 @@
       </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
-    <avrtoolserialnumber>J41800081816</avrtoolserialnumber>
+    <avrtoolserialnumber>J42700025568</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9801</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
         <InterfaceProperties>
-          <JtagDbgClock>1293974</JtagDbgClock>
+          <JtagDbgClock>1216683</JtagDbgClock>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
-      <ToolNumber>J41800081816</ToolNumber>
+      <ToolNumber>J42700025568</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
     <avrtoolinterface>JTAG</avrtoolinterface>
-    <avrtoolinterfaceclock>1293974</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>1216683</avrtoolinterfaceclock>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions xmlns="">
         <InterfaceProperties>
@@ -211,6 +211,18 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="drivers\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="servo.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="servo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="upLinkHandler.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="upLinkHandler.h">
       <SubType>compile</SubType>
     </Compile>
     <None Include="FreeRTOS\Example\main.c">
