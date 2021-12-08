@@ -24,6 +24,8 @@ FreeRTOS\src\timers.c
 
 FreeRTOS\src\variantHooks.c
 
+humidityTemperatureReader.c
+
 LoRaWANHandler.c
 
 main.c
