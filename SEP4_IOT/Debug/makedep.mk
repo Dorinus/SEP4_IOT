@@ -31,4 +31,3 @@ humidityTemperatureReader.c
 LoRaWANHandler.c
 
 main.c
-
