@@ -62,8 +62,6 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               co2Reader.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
                               co2Reader.o (__do_clear_bss)
-c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
-                              humidityTemperatureReader.o (calloc)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
                               co2Reader.o (malloc)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(abort.o)
@@ -151,6 +149,39 @@ Discarded input sections
  .debug_str     0x00000000      0x47e co2Reader.o
  .comment       0x00000000       0x31 co2Reader.o
  .debug_frame   0x00000000       0xf4 co2Reader.o
+ .text          0x00000000        0x0 conditions.o
+ .data          0x00000000        0x0 conditions.o
+ .bss           0x00000000        0x0 conditions.o
+ .text.conditions_initialisation
+                0x00000000       0x24 conditions.o
+ .text.conditions_set_co2
+                0x00000000       0x18 conditions.o
+ .text.conditions_set_humidity
+                0x00000000       0x14 conditions.o
+ .text.conditions_set_temperature
+                0x00000000       0x18 conditions.o
+ .text.conditions_destroy
+                0x00000000        0xa conditions.o
+ .text.conditions_get_co2
+                0x00000000        0x8 conditions.o
+ .text.conditions_get_temperature
+                0x00000000        0x8 conditions.o
+ .text.conditions_get_humidity
+                0x00000000        0x8 conditions.o
+ .text.get_conditions_payload
+                0x00000000       0x3a conditions.o
+ .text.get_conditions_simple_payload
+                0x00000000       0x10 conditions.o
+ .debug_info    0x00000000      0x3a8 conditions.o
+ .debug_abbrev  0x00000000      0x157 conditions.o
+ .debug_loc     0x00000000      0x121 conditions.o
+ .debug_aranges
+                0x00000000       0x68 conditions.o
+ .debug_ranges  0x00000000       0x58 conditions.o
+ .debug_line    0x00000000      0x269 conditions.o
+ .debug_str     0x00000000      0x31d conditions.o
+ .comment       0x00000000       0x31 conditions.o
+ .debug_frame   0x00000000       0xb4 conditions.o
  .text          0x00000000        0x0 servo.o
  .data          0x00000000        0x0 servo.o
  .bss           0x00000000        0x0 servo.o
@@ -413,7 +444,7 @@ Discarded input sections
  .rodata.str1.1
                 0x00000000       0x11 humidityTemperatureReader.o
  .text.humTempReader_create
-                0x00000000       0xda humidityTemperatureReader.o
+                0x00000000       0xd6 humidityTemperatureReader.o
  .text.humTempReader_destroy
                 0x00000000       0x1e humidityTemperatureReader.o
  .text.humTempReader_measure
@@ -432,7 +463,7 @@ Discarded input sections
                 0x00000000        0x4 humidityTemperatureReader.o
  .bss._event_group_start_measure
                 0x00000000        0x2 humidityTemperatureReader.o
- .debug_info    0x00000000      0x571 humidityTemperatureReader.o
+ .debug_info    0x00000000      0x567 humidityTemperatureReader.o
  .debug_abbrev  0x00000000      0x179 humidityTemperatureReader.o
  .debug_loc     0x00000000      0x435 humidityTemperatureReader.o
  .debug_aranges
@@ -750,12 +781,6 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
- .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
- .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
- .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
- .text.avr-libc
-                0x00000000       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
- .comment       0x00000000       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(abort.o)
@@ -834,6 +859,7 @@ Linker script and memory map
 Address of section .data set to 0x800200
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega2560/avr6/crtatmega2560.o
 LOAD co2Reader.o
+LOAD conditions.o
 LOAD servo.o
 LOAD upLinkHandler.o
 LOAD FreeRTOS/FreeRTOSTraceDriver/FreeRTOSTraceDriver.o

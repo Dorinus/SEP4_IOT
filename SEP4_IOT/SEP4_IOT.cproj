@@ -165,6 +165,12 @@
     <Compile Include="co2Reader.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="conditions.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="conditions.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\display_7seg.h">
       <SubType>compile</SubType>
     </Compile>

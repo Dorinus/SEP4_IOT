@@ -4,6 +4,8 @@
 
 co2Reader.c
 
+conditions.c
+
 servo.c
 
 upLinkHandler.c

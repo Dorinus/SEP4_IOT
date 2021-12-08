@@ -28,7 +28,7 @@ humTempReader_t humTempReader_create(UBaseType_t priority,
 										EventBits_t bit_start_measure,
 										EventGroupHandle_t event_group_ready_measurment, 
 										EventBits_t bit_ready) {
-	humTempReader_t _new_reader = calloc(1, sizeof(humidityTemperatureReader));
+	humTempReader_t _new_reader = malloc(sizeof(humidityTemperatureReader));
 	if (_new_reader == NULL){
 		return NULL;
 	}
