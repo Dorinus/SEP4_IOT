@@ -171,6 +171,18 @@
     <Compile Include="conditions.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="controller.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="controller.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="device.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="device.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\display_7seg.h">
       <SubType>compile</SubType>
     </Compile>

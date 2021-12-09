@@ -6,6 +6,10 @@ co2Reader.c
 
 conditions.c
 
+controller.c
+
+device.c
+
 servo.c
 
 upLinkHandler.c
