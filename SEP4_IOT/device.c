@@ -40,8 +40,15 @@ void device_executeTask(void* self) {
 	}
 }
 
-device_t device_create(UBaseType_t priority, UBaseType_t stack, EventGroupHandle_t startMeasureEventGroup, EventBits_t startMeasureBit,
-EventGroupHandle_t readyEventGroup, EventBits_t readyBit, co2Reader_t co2Reader, humTempReader_t humAndTempReader, MessageBufferHandle_t uplinkMessageBuffer){
+device_t device_create(UBaseType_t priority, 
+						UBaseType_t stack, 
+						EventGroupHandle_t startMeasureEventGroup, 
+						EventBits_t startMeasureBit,
+						EventGroupHandle_t readyEventGroup, 
+						EventBits_t readyBit, 
+						co2Reader_t co2Reader, 
+						humTempReader_t humAndTempReader, 
+						MessageBufferHandle_t uplinkMessageBuffer){
 
 	device_t _new_device = malloc(sizeof(device));
 	if (_new_device == NULL)
