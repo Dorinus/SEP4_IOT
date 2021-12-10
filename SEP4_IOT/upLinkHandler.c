@@ -17,15 +17,15 @@ static lora_driver_payload_t _uplink_payload;
 static MessageBufferHandle_t _messageBuffer;
 static bool isSetup = false;
 
-void lora_upLinkHandler_initialize(UBaseType_t lora_handler_task_priority,UBaseType_t stack,MessageBufferHandle_t messageBuffer)
+void lora_upLinkHandler_initialize(UBaseType_t lora_upLinkhandler_task_priority,UBaseType_t stack,MessageBufferHandle_t messageBuffer)
 {
 	_messageBuffer = messageBuffer;
 	xTaskCreate(
 	lora_upLinkHandler_task
-	,  "LRHand"  // A name just for humans
+	,  "LRULHand"  // A name just for humans
 	,  configMINIMAL_STACK_SIZE+200  // This stack size can be checked & adjusted by reading the Stack Highwater
 	,  (void*) messageBuffer
-	,  lora_handler_task_priority  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+	,  lora_upLinkhandler_task_priority  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
 	,  NULL );
 }
 

@@ -17,6 +17,7 @@
 #include "portmacro.h"
 #include "message_buffer.h"
 
-void lora_upLinkHandler_initialize(UBaseType_t lora_handler_task_priority,UBaseType_t stack,MessageBufferHandle_t messageBuffer);
+void lora_upLinkHandler_initialize(UBaseType_t lora_upLinkhandler_task_priority,
+UBaseType_t stack,MessageBufferHandle_t messageBuffer);
 void lora_upLinkHandler_task(MessageBufferHandle_t messageBuffer);
 void lora_upLinkHandler_initiateTask(void* messageBuffer);

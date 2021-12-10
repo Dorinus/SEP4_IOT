@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  00002190  00000000  00000000  0001a3a8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00003a32  00000000  00000000  0001c538  2**0
+ 10 .debug_str    00003a48  00000000  00000000  0001c538  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000ae24  00000000  00000000  0001ff6a  2**0
+ 11 .debug_loc    0000ae24  00000000  00000000  0001ff80  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000898  00000000  00000000  0002ad8e  2**0
+ 12 .debug_ranges 00000898  00000000  00000000  0002ada4  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -548,7 +548,7 @@ void * pvPortMalloc( size_t xWantedSize )
         {
             /* The wanted size must be increased so it can contain a BlockLink_t
              * structure in addition to the requested amount of bytes. */
-            if( ( xWantedSize > 0 ) &&
+            if( ( xWantedSize > 0 ) && 
      328:	01 15       	cp	r16, r1
      32a:	11 05       	cpc	r17, r1
      32c:	49 f0       	breq	.+18     	; 0x340 <pvPortMalloc+0x4a>
@@ -560,14 +560,14 @@ void * pvPortMalloc( size_t xWantedSize )
         {
             /* The wanted size must be increased so it can contain a BlockLink_t
              * structure in addition to the requested amount of bytes. */
-            if( ( xWantedSize > 0 ) &&
+            if( ( xWantedSize > 0 ) && 
      332:	08 17       	cp	r16, r24
      334:	19 07       	cpc	r17, r25
      336:	18 f0       	brcs	.+6      	; 0x33e <pvPortMalloc+0x48>
                     mtCOVERAGE_TEST_MARKER();
                 }
-            }
-            else
+            } 
+            else 
             {
                 xWantedSize = 0;
      338:	00 e0       	ldi	r16, 0x00	; 0
@@ -575,12 +575,12 @@ void * pvPortMalloc( size_t xWantedSize )
      33c:	01 c0       	rjmp	.+2      	; 0x340 <pvPortMalloc+0x4a>
             /* The wanted size must be increased so it can contain a BlockLink_t
              * structure in addition to the requested amount of bytes. */
-            if( ( xWantedSize > 0 ) &&
+            if( ( xWantedSize > 0 ) && 
                 ( ( xWantedSize + xHeapStructSize ) >  xWantedSize ) ) /* Overflow check */
             {
                 xWantedSize += xHeapStructSize;
      33e:	8c 01       	movw	r16, r24
-            else
+            else 
             {
                 xWantedSize = 0;
             }
@@ -6776,7 +6776,7 @@ void vApplicationIdleHook( void )
 00002eee <prvSetMainLedOn>:
  * Private function to enable board led to use it in application hooks
  */
-void prvSetMainLedOn( void )
+void prvSetMainLedOn( void ) 
 {
 #if defined(__AVR_ATmega640__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega2561__) // Arduino Mega with 2560
     DDRB  |= _BV(DDB7);
@@ -6791,7 +6791,7 @@ void prvSetMainLedOn( void )
 
 00002efc <prvBlinkMainLed>:
  */
-void prvBlinkMainLed( void )
+void prvBlinkMainLed( void ) 
 {
 
 #if defined(__AVR_ATmega640__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega2561__)  // Mega with 2560
@@ -6823,7 +6823,7 @@ void vApplicationMallocFailedHook( void )
     2f10:	90 40       	sbci	r25, 0x00	; 0
     2f12:	e1 f7       	brne	.-8      	; 0x2f0c <vApplicationMallocFailedHook+0x8>
     2f14:	00 c0       	rjmp	.+0      	; 0x2f16 <vApplicationMallocFailedHook+0x12>
-
+    
     for(;;)
     {
         _delay_ms(50);
@@ -6876,7 +6876,7 @@ static void _lora_setup(void)
     2f46:	de bf       	out	0x3e, r29	; 62
     2f48:	0f be       	out	0x3f, r0	; 63
     2f4a:	cd bf       	out	0x3d, r28	; 61
-
+	
 	char _out_buf[20];
 	lora_driver_returnCode_t rc;
 	status_leds_slowBlink(led_ST2); // OPTIONAL: Led the green led blink slowly while we are setting up LoRa
@@ -6894,7 +6894,7 @@ static void _lora_setup(void)
     2f5e:	9f 93       	push	r25
     2f60:	8f 93       	push	r24
     2f62:	0e 94 97 27 	call	0x4f2e	; 0x4f2e <printf>
-
+	
 	// Configure to EU868 LoRaWAN standards
 	printf("Configure to EU868 >%s<\n", lora_driver_mapReturnCodeToText(lora_driver_configureToEu868()));
     2f66:	80 d4       	rcall	.+2304   	; 0x3868 <lora_driver_configureToEu868>
@@ -7024,7 +7024,7 @@ static void _lora_setup(void)
 	// Join the LoRaWAN
 	uint8_t maxJoinTriesLeft = 10;
     3044:	1a e0       	ldi	r17, 0x0A	; 10
-
+	
 	do {
 		rc = lora_driver_join(LORA_OTAA);
     3046:	80 e0       	ldi	r24, 0x00	; 0
@@ -7178,7 +7178,7 @@ void lora_handler_task( void *pvParameters )
     3100:	8b 83       	std	Y+3, r24	; 0x03
     3102:	9c 83       	std	Y+4, r25	; 0x04
     3104:	48 ea       	ldi	r20, 0xA8	; 168
-
+	
 	for(;;)
 	{
 		xTaskDelayUntil( &xLastWakeTime, xFrequency );
