@@ -7,12 +7,12 @@
 
 typedef struct humidityTemperatureReader* humTempReader_t;
 
-humTempReader_t humTempReader_create(UBaseType_t priority, 
-										UBaseType_t stack, 
-										EventGroupHandle_t startMeasureEventGroup, 
-										EventBits_t startMeasureBit,
-										EventGroupHandle_t readyEventGroup, 
-										EventBits_t readyBit);
+humTempReader_t humTempReader_create(UBaseType_t priority,
+										UBaseType_t stack,
+										EventGroupHandle_t event_group_start_measure,
+										EventBits_t bit_start_measure,
+										EventGroupHandle_t event_group_ready_measurment,
+										EventBits_t bit_ready);
 void humTempReader_destroy(humTempReader_t self);
 void humTempReader_executeTask(void* self);
 void humTempReader_measure(humTempReader_t self);

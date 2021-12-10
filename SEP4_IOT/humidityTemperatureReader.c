@@ -8,11 +8,11 @@
 #include "event_groups.h"
 #include "portmacro.h"
 
-static EventGroupHandle_t _startMeasureEventGroup;
-static EventBits_t _startMeasureBit;
+static EventGroupHandle_t _event_group_start_measure;
+static EventBits_t _bit_start_measure;
 
-static EventGroupHandle_t _readyMeasuringEventGroup;
-static EventBits_t _readyBit;
+static EventGroupHandle_t _event_group_ready_measurment;
+static EventBits_t _bit_ready;
 
 typedef struct humidityTemperatureReader humidityTemperatureReader;
 
@@ -24,11 +24,11 @@ typedef struct humidityTemperatureReader {
 
 humTempReader_t humTempReader_create(UBaseType_t priority, 
 										UBaseType_t stack,
-										EventGroupHandle_t startMeasureEventGroup,
-										EventBits_t startMeasureBit,
-										EventGroupHandle_t readyEventGroup, 
-										EventBits_t readyBit) {
-	humTempReader_t _new_reader = calloc(1, sizeof(humidityTemperatureReader));
+										EventGroupHandle_t event_group_start_measure,
+										EventBits_t bit_start_measure,
+										EventGroupHandle_t event_group_ready_measurment, 
+										EventBits_t bit_ready) {
+	humTempReader_t _new_reader = malloc(sizeof(humidityTemperatureReader));
 	if (_new_reader == NULL){
 		return NULL;
 	}
@@ -37,11 +37,11 @@ humTempReader_t humTempReader_create(UBaseType_t priority,
 	_new_reader->humidity = 0;
 	_new_reader->temperature = 0;
 
-	_startMeasureEventGroup = startMeasureEventGroup;
-	_startMeasureBit = startMeasureBit;
+	_event_group_start_measure = event_group_start_measure;
+	_bit_start_measure = bit_start_measure;
 
-	_readyMeasuringEventGroup = readyEventGroup;
-	_readyBit = readyBit;
+	_event_group_ready_measurment = event_group_ready_measurment;
+	_bit_ready = bit_ready;
 
 	hih8120_initialise();
 	
@@ -74,13 +74,13 @@ void humTempReader_executeTask(void* self) {
 }
 
 void humTempReader_measure(humTempReader_t self) {
-	EventBits_t uxBits = xEventGroupWaitBits(_startMeasureEventGroup,
-	_startMeasureBit,
+	EventBits_t uxBits = xEventGroupWaitBits(_event_group_start_measure,
+	_bit_start_measure,
 	pdTRUE,
 	pdTRUE,
 	portMAX_DELAY);
 
-	if ((uxBits & (_startMeasureBit)) == (_startMeasureBit)) {
+	if ((uxBits & (_bit_start_measure)) == (_bit_start_measure)) {
 		hih8120_wakeup();
 		vTaskDelay(50);
 		if ( HIH8120_OK != hih8120_wakeup() )
@@ -98,7 +98,7 @@ void humTempReader_measure(humTempReader_t self) {
 			self->humidity = hih8120_getHumidityPercent_x10();			
 		}
 		vTaskDelay(1000);
-		xEventGroupSetBits(_readyMeasuringEventGroup, _readyBit);
+		xEventGroupSetBits(_event_group_ready_measurment, _bit_ready);
 	}
 }
 
