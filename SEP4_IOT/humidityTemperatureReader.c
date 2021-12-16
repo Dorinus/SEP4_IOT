@@ -1,3 +1,7 @@
+/**
+\author Dorin Chira
+**/
+
 #include "humidityTemperatureReader.h"
 #include <stdint.h>
 #include <stdlib.h>

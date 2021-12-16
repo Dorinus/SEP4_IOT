@@ -1,3 +1,7 @@
+/**
+\author Dorin Chira
+**/
+
 #pragma once
 #include <ATMEGA_FreeRTOS.h>
 #include <stdbool.h>

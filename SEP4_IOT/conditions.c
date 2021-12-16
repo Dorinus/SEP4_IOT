@@ -1,3 +1,7 @@
+/**
+\author Dorin Chira
+**/
+
 #include <stdlib.h>
 #include <stdint.h>
 #include "conditions.h"

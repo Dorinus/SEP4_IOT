@@ -1,3 +1,7 @@
+/**
+\author Dorin Chira
+**/
+
 #pragma once
 #include <stdint.h>
 #include <lora_driver.h>

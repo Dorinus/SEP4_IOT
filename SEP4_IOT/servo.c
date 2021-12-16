@@ -1,3 +1,7 @@
+/**
+\author Dorin Chira
+**/
+
 #include <ATMEGA_FreeRTOS.h>
 #include <rc_servo.h>
 #include "servo.h"
