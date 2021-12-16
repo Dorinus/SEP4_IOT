@@ -14,11 +14,11 @@
 #include <avr/sfr_defs.h>
 #include <spi_iha.h>
 
-static EventGroupHandle_t _startMeasureEventGroup;
-static EventBits_t _startMeasureBit;
+static EventGroupHandle_t _event_group_start_measure;
+static EventBits_t _bit_start_measure;
 
-static EventGroupHandle_t _readyMeasuringEventGroup;
-static EventBits_t _readyBit;
+static EventGroupHandle_t _event_group_ready;
+static EventBits_t _bit_ready;
 
 static MessageBufferHandle_t _uplinkmessageBuffer;
 
@@ -42,10 +42,10 @@ void device_executeTask(void* self) {
 
 device_t device_create(UBaseType_t priority, 
 						UBaseType_t stack, 
-						EventGroupHandle_t startMeasureEventGroup, 
-						EventBits_t startMeasureBit,
-						EventGroupHandle_t readyEventGroup, 
-						EventBits_t readyBit, 
+						EventGroupHandle_t event_group_start_measure, 
+						EventBits_t bit_start_measure,
+						EventGroupHandle_t event_group_ready, 
+						EventBits_t bit_ready, 
 						co2Reader_t co2Reader, 
 						humTempReader_t humAndTempReader, 
 						MessageBufferHandle_t uplinkMessageBuffer){
@@ -59,11 +59,11 @@ device_t device_create(UBaseType_t priority,
 	conditions_t currentCond = conditions_initialisation();
 	_new_device->conditions = currentCond;
 
-	_startMeasureEventGroup = startMeasureEventGroup;
-	_startMeasureBit = startMeasureBit;
+	_event_group_start_measure = event_group_start_measure;
+	_bit_start_measure = bit_start_measure;
 
-	_readyMeasuringEventGroup = readyEventGroup;
-	_readyBit = readyBit;
+	_event_group_ready = event_group_ready;
+	_bit_ready = bit_ready;
 	
 	_uplinkmessageBuffer=uplinkMessageBuffer;
 
@@ -96,17 +96,18 @@ void device_startMeasuring(device_t self) {
 		}
 
 		// start measuring
-		xEventGroupSetBits(_startMeasureEventGroup, _startMeasureBit);
+		xEventGroupSetBits(_event_group_start_measure, _bit_start_measure);
 
 		//wait for sensors to read data
-		EventBits_t uxBits = xEventGroupWaitBits(_readyMeasuringEventGroup,
-		_readyBit,
+		EventBits_t uxBits = xEventGroupWaitBits(_event_group_ready,
+		_bit_ready,
 		pdTRUE,
 		pdTRUE,
 		portMAX_DELAY);
 		
-		if ((uxBits & (_readyBit)) == (_readyBit)) {
+		if ((uxBits & (_bit_ready)) == (_bit_ready)) {
 			conditions_set_co2(self->conditions,co2reader_getCO2(self->co2_reader));
+			printf("%u", self->co2_reader);
 			
 			conditions_set_temperature(self->conditions,humTempReader_getTemperature(self->hum_temper_reader));
 			

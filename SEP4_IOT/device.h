@@ -14,10 +14,10 @@ typedef struct device* device_t;
 
 device_t device_create(UBaseType_t priority, 
 						UBaseType_t stack, 
-						EventGroupHandle_t startMeasureEventGroup, 
-						EventBits_t startMeasureBit,
-						EventGroupHandle_t readyEventGroup, 
-						EventBits_t readyBit, 
+						EventGroupHandle_t event_group_start_measure, 
+						EventBits_t bit_start_measure,
+						EventGroupHandle_t event_group_ready, 
+						EventBits_t bit_ready, 
 						co2Reader_t co2Reader,
 						humTempReader_t humAndTempReader,
 						MessageBufferHandle_t uplinkMessageBuffer);

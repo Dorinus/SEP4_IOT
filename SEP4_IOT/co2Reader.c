@@ -67,6 +67,7 @@ void co2Reader_measure(co2Reader_t self)
 	{
 		mh_z19_returnCode_t co2_measurement_return_code = mh_z19_takeMeassuring();
 		vTaskDelay(350);
+		puts("CO2");
 		if(co2_measurement_return_code == MHZ19_OK)
 			mh_z19_getCo2Ppm(&self->co2_value);
 		xEventGroupSetBits(_event_group_ready, _bit_ready);
