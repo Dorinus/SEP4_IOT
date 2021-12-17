@@ -111,7 +111,7 @@ void device_startMeasuring(device_t self) {
 		
 		if ((uxBits & (_bit_ready)) == (_bit_ready)) {
 			conditions_set_co2(self->conditions,co2reader_getCO2(self->co2_reader));
-			printf("%u", self->co2_reader);
+			printf("%u", conditions_get_co2(self->co2_reader));
 			
 			conditions_set_temperature(self->conditions,humTempReader_getTemperature(self->hum_temper_reader));
 			

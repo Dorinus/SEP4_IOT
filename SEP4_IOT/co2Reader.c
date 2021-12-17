@@ -1,3 +1,5 @@
+//Author: Justyna Janczy (309958)
+
 #include "co2Reader.h"
 
 typedef struct CO2Reader
@@ -53,7 +55,7 @@ co2Reader_t co2Reader_create(UBaseType_t priority,
 
 void co2Reader_destroy(co2Reader_t self)
 {
-	if(self != NULL)
+	if(self == NULL)
 		return;
 	vTaskDelete(self->co2_task_handle);
 	vPortFree(self);	
@@ -66,8 +68,7 @@ void co2Reader_measure(co2Reader_t self)
 	if((uxBits & (_bit_start_measure)) == (_bit_start_measure))
 	{
 		mh_z19_returnCode_t co2_measurement_return_code = mh_z19_takeMeassuring();
-		vTaskDelay(350);
-		puts("CO2");
+		
 		if(co2_measurement_return_code == MHZ19_OK)
 			mh_z19_getCo2Ppm(&self->co2_value);
 		xEventGroupSetBits(_event_group_ready, _bit_ready);

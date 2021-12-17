@@ -13,7 +13,7 @@
 #include <lora_driver.h>
 #include <status_leds.h>
 
- //Added
+ 
  #include "device.h"
  #include "co2Reader.h"
  #include "HumidityTemperatureReader.h"
